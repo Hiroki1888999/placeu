@@ -1,8 +1,28 @@
-<div class="content_post" style="background-image: url(<%= tweet.image %>);">
+<div class="content_post card">
   <% if user_signed_in? && current_user.id == tweet.user_id %>
-    <div class="more">
-      <span><%= image_tag 'arrow_top.png' %></span>
-      <ul class="more_list">
+  <div class="card-image">
+    <figure class="image">
+      <img class="is-rounded" src="<%= tweet.image %>" alt="Placeholder image">
+    </figure>
+  </div>
+  <div class="card-content">
+    <div class="media">
+      <div class="media-left">
+        <figure class="image is-48x48">
+          <img src="https://bulma.io/images/placeholders/96x96.png" alt="Placeholder image">
+        </figure>
+      </div>
+      <div class="media-content">
+        <p class="title is-4"><%= tweet.user.nickname %></p>
+        <p class="subtitle is-6">@username</p>
+      </div>
+    </div>
+    <div class="content">
+    <%= tweet.text%>
+      <br>
+      <time><%= simple_time(tweet[:created_at] ) %></time>
+    </div>
+     <ul class="more_list">
         <li>
           <%= link_to '詳細', "/tweets/#{tweet.id}", method: :get %>
         </li>
@@ -14,13 +34,6 @@
             <%= link_to '削除', "/tweets/#{tweet.id}", method: :delete %>
           </li>
         <% end %>
-      </ul>
-    </div>
   <% end %>
-  <%= simple_format(tweet.text) %>
-  <span class="name">
-    <a href="">
-      <span>投稿者</span><%= tweet.user.nickname %>
-    </a>
-  </span>
+  </div>
 </div>

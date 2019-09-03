@@ -2,7 +2,9 @@
 <html>
   <head>
     <title>PlaceU</title>
+    <%# <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css"> %>
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
+    <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
     <script type="text/javascript">
@@ -22,11 +24,11 @@
   </head>
 
   <body>
-    <header class="header">
-      <div class="header__bar row">
-        <h1 class="grid-6"><a href="/">PlaceU</a></h1>
+    <header class="header hero is-primary">
+      <div class="header__bar row hero-body">
+        <h1 class="grid-6 title"><a href="/">PlaceU</a></h1>
         <% if user_signed_in? %>
-          <div class="user_nav grid-6">
+          <div class="user_nav grid-6 subtitle">
             <span><%= current_user.nickname %>
               <ul class="user__info">
                 <li>
