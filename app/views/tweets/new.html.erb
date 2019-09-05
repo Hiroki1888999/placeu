@@ -1,12 +1,13 @@
 <div class="contents row">
   <div class="container">
-    <%= form_tag('/tweets', method: :post) do %>
       <h3>
         投稿する
       </h3>
-      <input placeholder="Image URL" type="text" name="image" autofocus="true">
-      <textarea placeholder="text" name="text" cols="30" rows="10"></textarea>
-      <input type="submit" value="SENT">
+    <%= form_for @tweet do |f| %>
+      <%= f.label "Select a file." %>
+      <%= f.file_field :image %>
+      <%= f.text_area :text, cols: "30", rows: "10", placeholder: "text" %>
+      <%= f.submit "SENT" %>
     <% end %>
   </div>
 </div>
