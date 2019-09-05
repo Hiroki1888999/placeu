@@ -2,7 +2,7 @@
   <% if user_signed_in? && current_user.id == tweet.user_id %>
   <div class="card-image">
     <figure class="image">
-      <img class="is-rounded" src="<%= tweet.image %>" alt="Placeholder image">
+      <%= image_tag tweet.image.url %>
     </figure>
   </div>
   <div class="card-content">
